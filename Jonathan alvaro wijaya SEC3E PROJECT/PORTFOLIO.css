@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #74ebd5, #9face6);
+    margin: 0;
+    padding: 0;
+}
+
+/* LOGIN */
+.login-box {
+    width: 300px;
+    margin: 120px auto;
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.login-box input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+.login-box button {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* PORTFOLIO */
+.portfolio {
+    display: none;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    margin: 15px auto;
+    width: 70%;
+    border-radius: 10px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto;
+    object-fit: cover;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.customize-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #222;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.customizer {
+    display: none;
+    text-align: center;
+    background: white;
+    padding: 15px;
+    width: 250px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.hint {
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+}
