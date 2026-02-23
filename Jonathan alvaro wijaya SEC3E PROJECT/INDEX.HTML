@@ -2,52 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Interactive Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
 </head>
-<body>
+<body id="body">
 
-    <div class="login-container">
-        <h2>Login</h2>
+<!-- LOGIN -->
+<div class="login-box">
+    <h2>Login</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="showPortfolio()">Login</button>
+</div>
 
-        <form>
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter username" required>
-            </div>
+<!-- PORTFOLIO -->
+<div class="portfolio" id="portfolio">
 
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter password" required>
-            </div>
+    <!-- BACKGROUND CUSTOMIZER -->
+    <button class="customize-btn" onclick="toggleCustomizer()">Customize Background</button>
 
-            <button type="submit">Login</button>
-        </form>
-
-        <!-- Gradient Button -->
-        <button class="gradient-btn" onclick="changeGradient()">
-            Change Background 🎨
-        </button>
-
-        <p class="signup-text">
-            Don’t have an account? <a href="#">Sign up</a>
-        </p>
+    <div class="customizer" id="customizer">
+        <h3>Choose Gradient Colors</h3>
+        <input type="color" id="color1">
+        <input type="color" id="color2">
+        <button onclick="applyGradient()">Apply</button>
     </div>
 
-    <script>
-        function changeGradient() {
-            const gradients = [
-                "linear-gradient(135deg, #667eea, #764ba2)",
-                "linear-gradient(135deg, #ff9a9e, #fad0c4)",
-                "linear-gradient(135deg, #43cea2, #185a9d)",
-                "linear-gradient(135deg, #ff758c, #ff7eb3)",
-                "linear-gradient(135deg, #11998e, #38ef7d)"
-            ];
+    <!-- NAME & PHOTO -->
+    <section class="card">
+        <input type="file" accept="image/*" onchange="loadPhoto(event)">
+        <img id="profilePic" class="profile-pic">
 
-            const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
-            document.body.style.background = randomGradient;
-        }
-    </script>
+        <h1 contenteditable="true">Your Name</h1>
+        <p class="hint">(Click text to edit)</p>
+    </section>
+
+    <!-- BIODATA -->
+    <section class="card">
+        <h2>Biodata</h2>
+        <p contenteditable="true">
+            Date of Birth:<br>
+            Gender:<br>
+            Email:<br>
+            Phone:
+        </p>
+    </section>
+
+    <!-- SCHOOL EXPERIENCE -->
+    <section class="card">
+        <h2>School Experience</h2>
+        <ul contenteditable="true">
+            <li>School Name</li>
+            <li>College Name</li>
+            <li>University Name</li>
+        </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="card">
+        <h2>Skills</h2>
+        <ul contenteditable="true">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </section>
+
+</div>
+
+<script>
+function showPortfolio() {
+    document.querySelector('.login-box').style.display = 'none';
+    document.getElementById('portfolio').style.display = 'block';
+}
+
+function toggleCustomizer() {
+    const box = document.getElementById('customizer');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+}
+
+function applyGradient() {
+    const c1 = document.getElementById('color1').value;
+    const c2 = document.getElementById('color2').value;
+    document.body.style.background = `linear-gradient(120deg, ${c1}, ${c2})`;
+}
+
+function loadPhoto(event) {
+    const img = document.getElementById('profilePic');
+    img.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
 
 </body>
 </html>

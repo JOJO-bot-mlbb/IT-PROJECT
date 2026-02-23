@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <form>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Gradient Button -->
+        <button class="gradient-btn" onclick="changeGradient()">
+            Change Background 🎨
+        </button>
+
+        <p class="signup-text">
+            Don’t have an account? <a href="#">Sign up</a>
+        </p>
+    </div>
+
+    <script>
+        function changeGradient() {
+            const gradients = [
+                "linear-gradient(135deg, #667eea, #764ba2)",
+                "linear-gradient(135deg, #ff9a9e, #fad0c4)",
+                "linear-gradient(135deg, #43cea2, #185a9d)",
+                "linear-gradient(135deg, #ff758c, #ff7eb3)",
+                "linear-gradient(135deg, #11998e, #38ef7d)"
+            ];
+
+            const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+            document.body.style.background = randomGradient;
+        }
+    </script>
+
+</body>
+</html>
